@@ -7,7 +7,7 @@
     <body>
         <h1>Create Panel</h1>
 
-        <form id="newpanel" action="" method="POST">
+        <form id="newpanel" action="" method="POST" onsubmit="return validate();">
             <label for="panelname">Panel Name</label><br/>
             <input type="text" name="panelname" id="panelname"/><br/><br/>
 
@@ -33,7 +33,7 @@
             <input type="button" value="reset" onclick="btnreset()"/>
             <input type="submit" value="submit"/><br/><br/>
 
-            <table id="sourcetable" hidden="true">
+            <table id="sourcetable">
                 <tr>
                     <th>Source</th>
                     <th>Data</th>
