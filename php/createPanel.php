@@ -1,4 +1,13 @@
 <?php
+    $servername = "127.0.0.1";
+    $username = "ryan";
+    $password = "Angusdraper2";
+    $db = "my_db";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+
+
     //get the name of the panel
     $panelname = $_POST['panelname'];
     
@@ -14,14 +23,6 @@
     echo '<pre>';
     print_r($files);
     echo '</pre>';
-
-    $servername = "127.0.0.1";
-    $username = "ryan";
-    $password = "Angusdraper2";
-    $db = "my_db";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $db);
 
     // Check connection
     if ($conn->connect_error) {
