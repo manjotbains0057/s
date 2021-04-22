@@ -3,7 +3,15 @@ $(document).ready(function(){
 
     //load users stored files
     $.getJSON("../php/createPanel.php", function(data){
-        console.log(data);
+        //display all files and options
+        $(data).each(function(i, row){
+            $("#allfiles")
+                .append("<p>"+row.filename+"</p>")
+                .append("<input type='radio' id='use' name='"+row.tablename+"' checked/>")
+                .append("<label for'use'>use</label><br/>")
+                .append("<input type='radio' id='disregard' name='"+row.tablename+"'/>")
+                .append("<label for'disregard'>disregard</label><br/><br/>");
+        });
     });
 
     $form.submit(function(e){
