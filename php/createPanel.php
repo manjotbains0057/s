@@ -1,3 +1,3 @@
 <?php
-    var_dump($_POST);
+    echo json_decode($_POST['json']);
 ?>
