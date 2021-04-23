@@ -1,0 +1,10 @@
+{ "panelname": "weather data",
+    "data": [{
+        "name": "UTC",
+        "values": {
+            "min": "0",
+            "max": "10",
+            "nominal": "integer" 
+            }
+    }]
+}

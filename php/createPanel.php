@@ -26,7 +26,7 @@
             }
             $jsarr[] = $arr;
         }
-
+        
         echo json_encode($jsarr);
     }
 ?>
