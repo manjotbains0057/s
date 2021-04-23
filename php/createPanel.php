@@ -1,43 +1,32 @@
 <?php
-    $servername = "127.0.0.1";
-    $username = "ryan";
-    $password = "Angusdraper2";
-    $db = "my_db";
+    include_once "./databaseConnect.php";
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $db);
-
-
-    //get the name of the panel
     $panelname = $_POST['panelname'];
-    
+
     $files = array();
     //store the file names in an array
-    foreach ($_POST as $param_name => $param_val) {
-        if($param_name != 'panelname'){
-            array_push($files, strtolower($param_name));
-        }
+    foreach ($_POST['tables'] as $table_val) {
+        array_push($files, strtolower($table_val));
     }
-
-    echo $panelname;
-    echo '<pre>';
-    print_r($files);
-    echo '</pre>';
 
     // Check connection
     if ($conn->connect_error) {
-    echo "error connecting to database";
+        echo "error connecting to database";
     }
     else{
-        $sql = "SELECT tablename, filename FROM files";
-        $result = mysqli_query($conn, $sql);
-
-        $arr = array();
-
-        while($row = mysqli_fetch_assoc($result)){
-            $arr[] = $row;
+        $jsarr = array();
+        foreach($files as $key => $val){
+            $sql = "SHOW COLUMNS FROM ".$files[$key];
+            $result = mysqli_query($conn, $sql);
+    
+            $arr = array();
+            $arr[] = $files[$key];
+            while($row = mysqli_fetch_assoc($result)){
+                $arr[] = $row['Field'];
+            }
+            $jsarr[] = $arr;
         }
 
-        echo $arr;
+        echo json_encode($jsarr);
     }
 ?>

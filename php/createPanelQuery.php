@@ -1,11 +1,5 @@
 <?php
-$servername = "127.0.0.1";
-$username = "ryan";
-$password = "Angusdraper2";
-$db = "my_db";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+include_once "./databaseConnect.php";
 
 // Check connection
 if ($conn->connect_error) {
@@ -23,6 +17,4 @@ else{
 
     echo json_encode($arr);
 }
-
-$conn -> close();
 ?>
