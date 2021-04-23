@@ -4,30 +4,34 @@
         <title>Sign Up</title>
         <script src="../js/validateSignUp.js"></script>
         <link rel="stylesheet" href="../css/signUp.css"/>
+        <link rel="stylesheet" href="./css/iconfont.css" />
     </head>
     <body onload="checkResponse()">
-        <h1>Sign Up</h1>
+        <form class = "container" onsubmit="return validate()" method="POST" action="../php/validateSignUp.php">
+            <div id="bigBox">
+                <h1>Sign Up</h1>
+        <!--<form action="../php/validateSignUp.php" method="POST" onclick="return validate();">-->
+                <div class = "submit">
+                <div id="errorMessage" name="unsuccess" hidden="true">Test</div><br/>
+                    <label for="username">Username</label><br/>
+                    <input type="text" id="username"/><br/><br/>
+                    <label for="conusername">Confirm Username</label><br/>
+                    <input type="text" id="conusername"/><br/><br/>
 
-        <form action="../php/validateSignUp.php" method="POST" onsubmit="return validate();">
-            <div id="errorMessage" name="unsuccess" hidden="true">Test</div><br/>
+                    <label for="password">Password</label><br/>
+                    <input type="password" id="password"/><br/><br/>
+                    <label for="conpassword">Confirm Password</label><br/>
+                    <input type="password" id="conpassword"/><br/><br/>
 
-            <label for="username">Username</label><br/>
-            <input type="text" id="username"/><br/><br/>
-            <label for="conusername">Confirm Username</label><br/>
-            <input type="text" id="conusername"/><br/><br/>
-
-            <label for="password">Password</label><br/>
-            <input type="password" id="password"/><br/><br/>
-            <label for="conpassword">Confirm Password</label><br/>
-            <input type="password" id="conpassword"/><br/><br/>
-
-            <div id="btns">
-                <input type="reset" value="reset"/>
-                <input type="submit" name="submit" value="submit"/>
+                <div class = "submit">
+                    <input type="reset" value="reset"/>
+                    <input type="submit" name="submit" value="submit"/>
+            </div>
+            </div>
             </div>
         </form>
 
         <p>Already have an account?</p>
-        <a href="../index.html">Log In</a>
+        <a href="../login.html">Log In</a>
     </body>
 </html>
