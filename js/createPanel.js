@@ -1,67 +1,36 @@
-function btnreset() {
-    document.getElementById('newpanel').reset();
+$(document).ready(function(){
+    $form = $('form');
 
-    var s = document.getElementById("source");
-    s.value = "csv";
+    //load users stored files
+    $.getJSON("../php/createPanelQuery.php", function(data){
+        //display all files and options
+        $(data).each(function(i, row){
+            $("#allfiles")
+                .append("<p>"+row.filename+"</p>")
+                .append("<input type='checkbox' id='use' name='"+row.tablename+"'/>")
+                .append("<label for'use'>use</label><br/><br/>");
+        });
+    });
 
-    sourceChange();
-}
+    $form.submit(function(e){
+        //stop form from submitting
+        e.preventDefault();
 
-function sourceChange() {
-    var s = document.getElementById("source").value;
-    var f = document.getElementById("infile");
-    var n = document.getElementById("function");
-    var l = document.getElementById("livesource");
+        //get the users input for panel name
+        var name = document.getElementById('panelname');
+        var checked = $('input:checkbox:checked').length;
 
-    if(s == 'csv' || s == 'image' || s == 'text'){
-        f.hidden = false;
-        n.hidden = true;
-        l.hidden = true;
-    }
-    else if(s == 'numeric'){
-        f.hidden = true;
-        n.hidden = false;
-        l.hidden = true;
-    }
-    else{
-        f.hidden = true;
-        n.hidden = true;
-        l.hidden = false;
-    }
-}
-
-function addSource() {
-    var s = document.getElementById("source").value;
-    var f = document.getElementById("infile");
-    var n = document.getElementById("function");
-    var l = document.getElementById("livesource");
-    var table = document.getElementById('sourcetable');
-
-    table.hidden = false;
-
-    if(s == 'csv' || s == 'image' || s == 'text'){
-        var row = table.insertRow();
-
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        cell1.innerHTML = s;
-        cell2.innerHTML = f.value;
-    }
-    else if(s == 'numeric'){
-        var row = table.insertRow();
-
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        cell1.innerHTML = s;
-        cell2.innerHTML = n.value;
-    }
-    else{
-        var row = table.insertRow();
-
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        cell1.innerHTML = s;
-        cell2.innerHTML = l.value;
-    }
-
-}
+        //check if panel name is empty or null
+        if(name.value.trim() == '' || name.value.trim() == null){
+            alert('Panel must have a name');
+            name.focus();
+        }
+        else if(checked == 0){ //check if no streams selected
+            alert('Panel must have at least one stream');
+        }
+        else{
+            //submit form
+            $form.off().submit();
+        }
+    });
+});
