@@ -1,23 +1,16 @@
 body
 {
-	margin: 0;
-	padding: 0;
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
 	background-image: url(../img/bglogin.png);	/* 背景图片 */
 	background-repeat: no-repeat;	/* 背景图片不重复 */
 }
 
+
 /*
-.form-container
-{
-    background-color: black;
-    text-align: center;
-    width: : 300px;
-    margin: 50px auto;
-    box-shadow: 0px 3px 7px 3px rgba(0,0,0,0.2);
-}
-
-
-.form-container h3
+.container h3
 {
     text-align: center;
     padding: 8px;
@@ -80,6 +73,16 @@ body
 	background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);	/* 按钮颜色 */
 }
 
+#bigBox .form-grp .SignButton
+{
+	margin-top: 30px;	/* 按钮顶部与输入框的距离 */
+	width: 150px;
+	height: 25px;
+	color: white;	/* 按钮字体颜色 */
+	border: 0; /* 删除按钮边框 */
+	border-radius: 20px;	/* 按钮圆角边 */
+	background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);	/* 按钮颜色 */
+}
 /*
 input[type = text],input[type = password]
 {
