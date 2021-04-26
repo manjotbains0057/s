@@ -1,33 +1,45 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>data stream web interface</title>
-	<link rel = "stylesheet" type = "text/css" href = "../css/login.css">
-	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel = "stylesheet" type = "text/css" href = "./css/login_new.css">
+	<link rel="stylesheet" href="./css/iconfont.css" />
+	<link rel = "stylesheet" href = "./css/font-awesome.min.css">
+<!--	<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
 </head>
 
 <body>
-	<form class = "form-container" onsubmit="return validate()" method="POST" action="html/panels.html">
-		<h3>Login</h3>
+		<!--login page-->
+		<form class = "container" onsubmit="return validate()" method="POST" action="./html/panels.html">
+			<div id="bigBox">
+					<h1>Login</h1>
+					<div class = "form-grp">
+						<div class="inputText">
+							<span class="iconfont icon-nickname"></span>
+							<label for ="username"> Username</label><br>
+							<input type = "text" name = "id" placeholder = "given userid" id = "userid">
+							<i class = "fa fa-times u_times"></i>
+							<i class = "fa fa-check u_check"></i>
+						</div>
+					</div>
+				<div class = "form-grp">
+					<div class = "inputText">
+						<span class="iconfont icon-visible"></span>
+						<label for = "=password">Password</label><br>
+						<input type = "text" name = "password" placeholder = "password" id = "userpassword">
+						<i class = "fa fa-times p_times"></i>
+						<i class = "fa fa-check p_check"></i>
+					</div>
+				</div>
 
-		<div class = "form-grp">
-			<label for ="username"> Username</label><br>
-			<input type = "text" name = "id" placeholder = "given userid" id = "userid">
-			<i class = "fa fa-times u_times"></i>
-			<i class = "fa fa-check u_check"></i>
-		</div>
-
-		<div class = "form-grp">
-			<label for = "=password">Password</label><br>
-			<input type = "text" name = "password" placeholder = "password" id = "userpassword">
-			<i class = "fa fa-times p_times"></i>
-			<i class = "fa fa-check p_check"></i>
-		</div>
-
-		<div class = "form-grp">
-			<input type = "submit" name = "login-button" value = "login">
-		</div>
-
+				<div class = "form-grp">
+					<input class="loginButton" type = "submit" name = "login-button" onclick="return validate();" value = "login">
+					<input class="SignButton" type = "button" name = "sign-button" value = "Sign Up" onclick="javascrtpt:window.location.href='html/signUp.html'" />
+				</div>
+			</div>
+		</form>
 	</for>
-<script type = "text/javascript" src = "../js/login.js"></script>
+	<script type = "text/javascript" src = "./js/login.js"></script>
 </body>
 </html>
+>>>>>>> Stashed changes
